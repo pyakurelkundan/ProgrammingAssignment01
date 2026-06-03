@@ -85,7 +85,22 @@ public class TicketBoard {
     // ---------------------------------------------------------
     public Ticket findByIdBinarySearch(int id) {
         // TODO #5
-        return null;
+        int left = 0;
+        int right = size - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            int midId = tickets[mid].getId();
+
+            if (midId == id) {
+                return tickets[mid];
+            } else if (midId < id) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return null; // not found
     }
 
     // Utility: sort by ID ascending (already implemented)

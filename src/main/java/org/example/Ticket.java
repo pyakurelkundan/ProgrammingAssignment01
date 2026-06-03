@@ -35,17 +35,20 @@ public abstract class Ticket {
 
     public int estimateResolutionHours() {
         // TODO #1a
-        return -1;
+        int base = (6 - getPriority()) * 2 + getDaysOpen();
+        return Math.max(1, base);
     }
 
     public int estimateResolutionHours(int complexityFactor) {
         // TODO #1b
-        return -1;
+        int base = (6 - getPriority()) * 2 + getDaysOpen();
+        return Math.max(1, base * complexityFactor);
     }
 
     public int estimateResolutionHours(int complexityFactor, int afterHoursPenalty) {
         // TODO #1c
-        return -1;
+        int base = (6 - getPriority()) * 2 + getDaysOpen();
+        return Math.max(1, base * complexityFactor + afterHoursPenalty);
     }
 
     @Override
